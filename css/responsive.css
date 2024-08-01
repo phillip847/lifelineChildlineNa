@@ -1,0 +1,55 @@
+@media (min-width: 991px) and (max-width: 1280px) {
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.section-title {
+	padding: 0 90px;
+}
+.courses .course-body,.courses .course-meta {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.courses .single-course {
+	margin: 0 10px 10px 10px;
+}
+.courses .course-info{
+	display:none;
+}
+.courses .course-body,.courses .course-meta {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.courses.single .nav-tabs li {
+	display: block;
+}
+.courses.single .course-info{
+	display:block !important;
+}
+.courses.single .single-info {
+	display: block;
+	width: 100%;
+	margin: 0;
+}
+.courses.single .course-single-gallery .single-gallery,
+.courses.single .course-single-gallery {
+	height: 225px;
+	width: 100%;
+}
+.features .single-feature {
+	padding: 0 30px;
+}
+.features .single-feature {
+	padding: 0 30px;
+}
+.fun-facts .icon {
+	float: none;
+  }
+  .fun-facts .icon:before {
+	display: none !important;
+	content: "";
+  }
+  .fun-facts .icon::after {
+	display: none;
+  }
+}
