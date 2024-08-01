@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>LifeLine/ChildLine Namibia</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+        <link href="img/llcl.png" rel="icon" />
+
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="ge/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="ge/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="ge/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="ge/css/style.css" rel="stylesheet">
+<style>
+input[type="range"] {
+  position: absolute;
+  width: 100%;
+  display: block;
+  cursor: pointer;
+  background: transparent;
+  -webkit-appearance: none;
+  height: 5px;
+  z-index: 1;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: none;
+  height: 10px;
+  width: 10px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: transparent;
+  height: 10px;
+}
+
+#range {
+  position: absolute;
+  background-color: grey;
+  padding: 0px;
+  height: 5px;
+  width: 100%;
+  display: block;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+.range-indicator {
+  position: absolute;
+  background: #007bff;
+  height: 5px;
+  z-index: 1;
+  width: 0%;
+  display: block;
+  transition: all 0.5s;
+}
+
+.card {
+  width: 300px;
+  margin: 5rem auto;
+  padding: 0px;
+  box-shadow: 0px 0px 100px #4DA6D6;
+}
+
+.card-body {
+  padding: 0px;
+  text-align: center;
+  padding-bottom: 30px;
+  width: 100%;
+  background-color: #fff;
+}
+
+#tracktime {
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.controls {
+  display: inline;
+  margin: auto;
+  padding: 0px;
+}
+.controls1 {
+  display: inline;
+  margin: auto;
+  padding: 0px;
+}
+
+.album-img {
+  width: 100%;
+}
+
+#Album-carousel {
+  width: 100%;
+  margin: auto;
+}
+
+.control-btn {
+  padding: 7px 7px;
+  color: black;
+  background: transparent;
+  border: none;
+  margin: 0px 30px;
+  font-size: 23px;
+  transition: color 0.2s;
+}
+
+.control-btn:hover {
+  background: transparent;
+  color: #4DA6D6;
+  cursor: pointer;
+}
+
+.control-btn:focus {
+  outline: none;
+}
+
+.control-btn:active {
+  border: none;
+  outline: none;
+}
+
+#play-pause {
+  width: 10%;
+  transition: all 0.2s;
+  color: #4DA6D6;
+}
+
+#songName {
+  height: 54px;
+  padding: 10px;
+  padding-top: 15px;
+  font-size: 27px;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.5s;
+}
+
+.range-indicator-pause {
+  background-color: #4DA6D6;
+  transition: all 0.5s;
+}
+
+.current-song {
+}
+
+#playlist-btn {
+  position: absolute;
+  transform: translate(-130px, 25px);
+  background: transparent;
+  border: none;
+  transition: color 0.2s;
+}
+
+#playlist-btn:hover {
+  cursor: pointer;
+}
+
+#shuffle-btn {
+  position: absolute;
+  transform: translate(105px, 25px);
+  background: transparent;
+  border: none;
+  transition: color 0.2s;
+}
+
+.playlist {
+  position: absolute;
+  width: 298px;
+  height: 0px;
+  background: transparent;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.list-group-item:hover {
+  cursor: pointer;
+}
+
+.list-group-item {
+  background-color: transparent;
+  transition: background-color 0.5s;
+  color: white;
+  border-color: white transparent;
+}
+
+.list-group-item.active {
+  transition: background-color 0.4s;
+  background-color: #007bffa1;
+  border-color: transparent;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #000000a1;
+}
+.programs {width: 50%;
+		  border: 2px solid black;
+		  border-collapse: collapse;
+		  font-family: Arial, Verdana, sans-serif;
+      margin-left: 15%;
+   margin-right: 20%;}
+		  
+.programs caption {caption-side: bottom;
+				text-align: left;
+				font-size: 0.8em;}
+				
+.programs td {font-size: 0.7em;
+			vertical-align: top;
+			border: 1px solid gray;
+			padding: 2px;}
+			
+.programs tr {height: 25px;}
+
+.programs thead {color: white;
+				 background-color: rgb(105,177,60);}
+				 
+.programs thead th {font-size: 0.7em;
+              border: 1px solid gray;}
+
+.programs thead th:first-of-type {background-color: rgb(153,86,7);}
+
+.programs thead th:nth-of-type(7) { background-color: #4DA6D6;}
+
+.programs thead th:nth-of-type(8) { background-color: #4DA6D6;}
+
+.timeColumn {width: 10%;
+            background-color: rgb(215,205,151);}
+
+.wDayColumns {width: 11%;
+              background-color: rgb(236,255,211);}
+
+.wEndColumns {width: 17%;
+              background-color: rgb(255,231,255);}
+
+#intro p { -moz-column-count: 3;
+           -webkit-column-count: 3;
+            column-count: 3;
+            column-gap: 20px;
+           -moz-column-rule: 1px solid black;
+           -webkit-column-rule: 1px solid black;
+           column-rule: 1px solid black;}
+        
+
+/*
+   New Perspectives on HTML and CSS
+   Tutorial 5
+   Review Assignment
+
+   KPAF General Style Sheet
+  
+
+   Filename:         kpaf2.css
+   Supporting Files: none
+
+*/
+
+/* Default styles */
+
+* {
+   margin: 0px;
+   list-style: none;
+}
+
+
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    table.programs th, table.programs td {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    h2 {
+        font-size: 1.2rem;
+    }
+    table.programs th, table.programs td {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* intro section styles */
+
+#intro {
+  margin-left: 60px;
+  margin-right: 60px;
+
+     
+}
+
+
+
+#intro hgroup h2 {
+   color: white;  
+   background-color: #4DA6D6;
+   font-size: 1.1em; 
+   letter-spacing: 5px;
+   padding: 5px 0px 5px 12px;
+   width: 60%;
+   margin-left: 10%;
+   margin-right: 20%;
+}
+
+#intro p {
+   line-height: 1.4em;
+   margin: 15px;
+   margin-left: 20%;
+   margin-right: 20%;
+}
+
+
+
+
+/* Slider */
+
+
+section {
+    display: grid;
+    place-items: center;
+}
+
+
+
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 80%;
+    overflow: hidden;
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.4px);
+    -webkit-backdrop-filter: blur(7.4px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}
+
+.slider-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    animation: scrolling 20s linear infinite;
+
+}
+
+@keyframes scrolling {
+
+    0% {
+        transform: translateX(80%);
+    }
+
+    100% {
+        transform: translateX(-20%);
+    }
+}
+
+.slider-items img {
+    width: 12%;
+    margin: 20px;
+    color: #4DA6D6;
+
+}
+
+
+</style>
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" role="status"></div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top px-0">
+            <div class="container px-0">
+                <div class="topbar">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-md-8">
+                            <div class="topbar-info d-flex flex-wrap">
+                                <a href="#" class="text-light me-4"><i class="fas fa-envelope text-white me-2"></i>info@lifeline.org.na</a>
+                                <a href="#" class="text-light"><i class="fas fa-phone-alt text-white me-2"></i>+264 61 226 889</a>
+                               
+                                <div class="h-100 d-inline-flex align-items-center me-0">
+                                    <marquee behavior="scroll" direction="left" style="color: #FFFFFF;">Restoring Hope, Changing Lives</marquee>
+                                  </div>
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <div class="topbar-icon d-flex align-items-center justify-content-end">
+                                <a href="#" class="btn-square text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="btn-square text-white me-2"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="btn-square text-white me-2"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="btn-square text-white me-2"><i class="fab fa-youtube"></i></a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <nav class="navbar navbar-light bg-light navbar-expand-xl">
+                  <a href="index.html" class="navbar-brand ms-3">
+                      <h1 class="m-0"> <img style="height: 80px;" class="img-fluid me-3" src="img/llcl_logo.png" alt=""/></h1>
+                  </a>
+                  <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                      <span class="fa fa-bars text-primary"></span>
+                  </button>
+                  <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                      <div class="navbar-nav ms-auto">
+                          <a href="index.html" class="nav-item nav-link active">Home</a>
+                          <div class="nav-item dropdown">
+                              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About</a>
+                              <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                  <a href="#" class="dropdown-item">About LLCL</a>
+                                  <a href="Management.html" class="dropdown-item">Management</a>
+                                  
+                              </div>
+                          </div>
+                          <div class="nav-item dropdown">
+                              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Focused Area</a>
+                              <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                  <a href="Counselling.html" class="dropdown-item">Counselling Center</a>
+                                  <a href="ChildProtection.html" class="dropdown-item">Child Protection</a>
+                                  <a href="Education copy 2.html" class="dropdown-item">Education</a>
+                                  <a href="Gender.html" class="dropdown-item">Gender</a>
+                                  <a href="Uitani.html" class="dropdown-item">Uitani</a>
+                              </div>
+                          </div>
+                          <div class="nav-item dropdown">
+                              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Get Involved</a>
+                              <div class="dropdown-menu m-0 bg-secondary rounded-0">
+                                  <a href="#" class="dropdown-item">Volunteer</a>
+                                  <a href="#" class="dropdown-item">Membership</a>
+                                  <a href="#" class="dropdown-item">Vacancies</a>
+                                  
+                              </div>
+                          </div>
+                          <a href="contact.html" class="nav-item nav-link">Contact</a>
+                      </div>
+                      <a href="https://report.iwf.org.uk/en/report"><img style="height: 65px; width: 200px;" class="img-fluid" src="img/iwf.png" alt=""></a>
+                      <div class="d-flex align-items-center flex-nowrap pt-xl-0" style="margin-left: 15px;">
+                          <a href="index.html" class="btn-hover-bg btn btn-primary text-white py-2 px-4 me-3">Donate Now</a>
+                      </div>
+                  </div>
+              </nav>
+          </div>
+      </div>
+      <!-- Navbar End -->
+
+        
+       <!-- Carousel Start -->
+        <div style="height: 50%;"  class="container-fluid carousel-header vh-50 px-0">
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
+                    <!--li data-bs-target="#carouselId" data-bs-slide-to="2"></li>--->
+                </ol>
+                <div style="height: 500px;"  class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img style="height: 500px;" src="img/cove1.jpg" class="img-fluid" alt="Image">
+                        <div style="height: 500px;" class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">UITANI CHILDLINE RADIO</h4>
+                                
+                                <p class="mb-5 fs-5">We talk about what you talk about. 
+                                </p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="#">Listen to some of our jingles.</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img style="height: 500px;" src="img/uita.jpg" class="img-fluid" alt="Image">
+                        <div style="height: 500px;" class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <!--h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">About Gender Department</h4>
+                                
+                                <p class="mb-5 fs-5">With a strong Gender Agenda to promote gender equality and was awarded the Gender Is My Agenda award with the President of Namibia in 2018 at a state banquette. 
+                                </p>--->
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="#">UITANI CHILDLINE RADIO</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--div class="carousel-item">
+                        <img style="height: 500px;" src="img/gen/menconf.JPG" class="img-fluid" alt="Image">
+                        <div style="height: 500px;" class="carousel-caption">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h4 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">About Gender Department</h4>
+                                
+                                <p class="mb-5 fs-5">With a strong Gender Agenda to promote gender equality and was awarded the Gender Is My Agenda award with the President of Namibia in 2018 at a state banquette. 
+                                </p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="btn-hover-bg btn btn-primary text-white py-3 px-5" href="#">Join With Us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>--->
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+
+
+
+        <!-- About Start -->
+        <div class="container-fluid about  py-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-xl-5">
+                        <div class="h-100">
+                            <img src="img/uita.jpg" class="img-fluid w-100 h-100" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-xl-7">
+                        <h5 class="text-uppercase text-primary">About Us</h5>
+                        <h1 class="mb-4">UITANI CHILDLINE RADIO</h1>
+                        <p style="text-align: justify;" class="fs-5 mb-4">LifeLine/ChildLine Namibia has a radio programme for children recorded by children. 
+                          This unique radio programme has been in existence since 2005. Uitani ChildLine Radio is the only radio show produced for children by children in Namibia. On a weekly basis up to 20 children come to the studio on the upper level of LifeLine/ChildLine Namibia’s Head Office in Windhoek to discuss and record issues that concern children all over the country. Uitani ChildLine Radio aims to create awareness by educating, advocating and entertaining young Namibian’s by young Namibian’s. Hence, the Slogan, “we talk about what you talk about”. Uitani ChildLine Radio puts the children and teenagers at the forefront of advocating for their peers. The initiative is based on the principles of child participation, children’s rights and child protection. The uniqueness of this endeavour cannot be overlooked especially the unmeasurable impact through continuous awareness raising, reaching communities in sometimes unreachable locations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+         <!-- ##### Featured Artist Area Start ##### -->
+    <div class="featured-artist-area section-padding-60 bg-img bg-overlay bg-fixed" style="background-image: url(img/uita.jpg); background-repeat: no-repeat; width: 80%; margin-left: 10%; margin-right: 10%;">
+      <div class="container">
+          <div style="background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.7) 60%)" class="row align-items-end">
+              <div style="transform: translate(2%, -35%); display: flex; backdrop-filter: blur(10px); background-color: #11111120; box-shadow: 0 0 8px #ffffff25; " class="col-11 col-md-5 col-lg-3">
+                  <div class="featured-artist-thumb">
+                      <img style="height: 100%; width: 80%;" src="img/prese.jpg" alt="">
+                  </div>
+              </div>
+              <div  class="col-12 col-md-7 col-lg-8">
+                  <div class="featured-artist-content">
+                      <!-- Section Heading -->
+                      <div class="section-heading white text-left mb-30">
+                          
+                          <h2 style="color: white;" >HOW DO WE CHOOSE PRESENTERS?</h2>
+                      </div>
+                      <p style="color: white; text-align: justify;" >An advert goes out on our social media platforms inviting interested children between the ages of 9-16 years old to apply to be Uitani Childline Radio presenters. Children are asked to fill in an application form. 
+
+                        Once the application form is returned, we ask all the children who applied to write us a motivational letter stating why they want to be part of Uitani and what positive changes will they bring to the team. If the child makes it through that process, they are asked to come in and do a voice test. Thereafter the child gets interviewed by the Uitani Radio Co-ordinator and the Producer..</p>
+                      
+                      <audio style="display: block;" controls>
+                        <source src="audio/With-underlay.mp3" type="audio/mpeg">
+                       </audio>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  <!-- ##### Featured Artist Area End ##### -->
+
+
+	<br>
+
+<div  id="intro">
+		<hgroup>
+		   
+		   <h2>UITANI ChildLine Schedule</h2>
+		</hgroup>
+
+		  
+
+		<table style="margin-left: 10% !important; margin-right: 10% !important; width: auto !important;" class="programs" summary="Lists the moring programs aired by KPAF
+										  from 5:00 a.m. to 12:00 p.m. (central time).">
+			  <colgroup span="3">
+				  <col class="timeColumn">
+					</col>
+					
+					</col>
+					
+					</col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th>Time</th>
+						<!--th>Monday</th>
+						<th>Tuesday</th>
+						<th>Wednesday</th>
+						<th>Thursday</th>
+						<th>Friday</th>--->
+						<th>Saturday</th>
+						<!--th>Sunday</th>--->
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>14:00 PM - 15:00 PM</td>
+						
+						<td rowspan="4">OMULUNGA RADIO 100.9FM</td>
+						
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						
+					</tr>
+					<tr>
+						<td></td>
+					</tr>
+					<tr>
+						<td>10:00 AM - 11:00 AM</td>
+						
+						<td rowspan="2">FOCUS FM 89.0FM</td>
+						
+					</tr>
+					<tr>
+						<td></td>
+						
+					</tr>
+					
+				
+				</tbody>
+				<!--caption align="bottom">Namibia Time</caption>--->
+			</table>
+ 
+</div>
+<br>
+<h4 class="text-center" style="padding:10px;color: black;margin:0;">LISTEN TO UITANI JINGLES</h4>
+		<audio>
+			<source>
+			  </audio>
+		<div class="container299">
+		  <div class="card">
+			<div class="card-img-top">
+			  <div class="playlist overlay">
+				<ul class="list-group">
+				  <h4 class="text-center" style="padding:10px;color:white;margin:0;">UITANI JINGLES</h4>
+				  <button value=0 class="list-group-item">SKRYPT MENTAL HEALTH MESSAGE</button>
+				  <button value=1 class="list-group-item">WATERS IWF MESSAGE</button>
+				  <button value=2 class="list-group-item">DJ SHOZA SHOUT OUT!</button>
+          <button value=2 class="list-group-item">CARLITO SHOUT OUT</button>
+          
+				</ul>
+			  </div>
+			  <div id="Album-carousel" class="carousel slide">
+				<div class="carousel-inner">
+				  <div class="carousel-item active">
+					<img src="img/uitani.png" class="album-img">
+				  </div>
+				  <div class="carousel-item">
+					<img src="img/b2.jpg" class="album-img">
+				  </div>
+				  <div class="carousel-item">
+					<img src="img/urad.jpg" class="album-img">
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="card-body">
+			  <div id=range>
+				<div class="range-indicator range-indicator-pause">&nbsp;</div>
+				<input type=range id="inputrange">
+			  </div>
+			  <button id="playlist-btn" value=0><i class="fa fa-bars"></i></button>
+			  <button id="shuffle-btn"><i class="fa fa-random"></i></button>
+			  <div id="songName">&nbsp;</div>
+			  <div id=tracktime>0/0</div>
+			  <div class="controls">
+				<button id=prev class="control-btn"><i class="fa fa-backward"></i></button>
+				<button id=play-pause class="control-btn" value=1><i class="fa fa-play"></i></button>
+				<button id=next class=" control-btn"><i class="fa fa-forward"></i></button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+
+
+
+    <section>
+      <h1>Our Donors</h1>
+      <div class="slider">
+          <div class="slider-items">
+              <img src="img/client-1.png"
+                  alt="">
+              <img src="img/client-2.png"
+                  alt="">
+              <img src="img/client-3.png"
+                  alt="">
+              <img src="img/client-4.png"
+                  alt="">
+              <img src="img/client-5.png"
+                  alt="">
+              <img src="img/client-6.png" alt="">
+              <img src="img/client-7.jpg"
+                  alt="">
+              <img src="img/client-8.png"
+                  alt="">
+              <img src="img/client-9.png"
+                  alt="">
+              <img src="img/client-10.jpg"
+                  alt="">
+              <img src="img/client-11.jpg"
+                  alt="">
+              <img src="img/client-12.png"
+                  alt="">
+              
+          </div>
+      </div>
+
+  </section>
+        
+
+<br>
+
+         <!-- Footer Start -->
+         <div style="background-color: #4DA6D6 !important;"
+         class="container-fluid bg-dark footer mt-5 pt-5 wow fadeIn"
+         data-wow-delay="0.1s"
+       >
+         <div class="container py-5">
+           <div class="row g-5">
+             <div class="col-lg-3 col-md-6">
+               <h1 class="text-white mb-4">
+                 <img
+                   class="img-fluid me-3"
+                   src="img/llcl.png"
+                   alt=""
+                 />
+               </h1>
+               <p style="color: white;">
+                 We run the only national helpline-based counselling service in Namibia. 
+               </p>
+               
+             </div>
+             <div class="col-lg-3 col-md-6" >
+               <h5 class="text-light mb-4">Address</h5>
+               <p style="color: white;">
+                 <i class="fa fa-map-marker-alt me-3"></i>45 S Shixungileni Street , Windhoek, Namibia
+               </p>
+               <p style="color: white;"><i class="fa fa-phone-alt me-3"></i>+264 61 226 889</p>
+               <p style="color: white;"><i class="fa fa-envelope me-3"></i>info@lifeline.org.na</p>
+             </div>
+             <div class="col-lg-3 col-md-6">
+               <h5 class="text-light mb-4">Quick Links</h5>
+               <h5 class="text-light mb-4">Quick Links</h5>
+               <a style="color: white;" class="btn btn-link" href="Home.html">About Us</a> <br>
+               <a style="color: white;" class="btn btn-link" href="Counselling.html">Counselling center</a><br>
+               <a style="color: white;" class="btn btn-link" href="Gender.html">Gender</a><br>
+               <a style="color: white;" class="btn btn-link" href="education.html">Education</a><br>
+             </div>
+             <div class="col-lg-3 col-md-6">
+               <h5 class="text-light mb-4">Our Social Networks</h5>
+               <p style="color: white;">Follow Us on social Media.</p>
+               
+               <div class="d-flex pt-2">
+                 <a class="btn btn-square me-1" href="https://twitter.com/LLCL_NAM"
+                   ><i style="color: white;" class="fab fa-twitter"></i
+                 ></a>
+                 <a class="btn btn-square me-1" href="https://www.facebook.com/LifeLineChildLineNamibia"
+                   ><i style="color: rgb(6, 220, 248);" class="fab fa-facebook-f"></i
+                 ></a>
+                 <a class="btn btn-square me-1" href="https://www.instagram.com/lifeline_childline_nam/"
+                   ><i style="color: white;" class="fab fa-youtube"></i
+                 ></a>
+                 <a class="btn btn-square me-0" href="https://www.instagram.com/lifeline_childline_nam/"
+                   ><i style="color: white;" class="fab fa-instagram"></i
+                 ></a>
+               </div>            
+             </div>
+           </div>
+         </div>
+         
+       
+       </div>
+       <!-- Footer End -->
+
+
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-4 text-center text-md-start mb-md-0">
+                        2024 &copy; <a style="color: #4DA6D6;" href="https://www.lifelinechildline.org.na">LifeLine/ChildLine </a>, All Right Reserved.
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <a href="#" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-youtube"></i></a>
+                           
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center text-md-end text-body">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a style="color: #4DA6D6;" class="border-bottom" href="#">LLCL IT Team</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
+       
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
+        
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="ge/lib/easing/easing.min.js"></script>
+        <script src="ge/lib/waypoints/waypoints.min.js"></script>
+        <script src="ge/lib/counterup/counterup.min.js"></script>
+        <script src="ge/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="ge/lib/lightbox/js/lightbox.min.js"></script>
+        
+
+        <!-- Template Javascript -->
+        <script src="ge/js/main.js"></script>
+
+
+<script>
+	$(document).ready(function() {
+  var i = 0;
+
+  var Playlist = [
+    {
+      Artist: "Uitani radio",
+      Song: "Mental Health",
+      Album: "Mental Health",
+      Src:
+        "audio/jingles/skrypt.mp3"
+    },
+    {
+      Artist: "UITANI",
+      Song: "Waters IWF",
+      Album: "Uitani Radio",
+      Src:
+        "audio/jingles/waters.mp3"
+    },
+    {
+      Artist: "DJ",
+      Song: "DJ Shoza",
+      Album: "DJ Shoza",
+      Src:
+        "audio/jingles/djshoza.mp3"
+    },
+    {
+      Artist: "Carlito",
+      Song: "Carlito Shout Out",
+      Album: "Uitani",
+      Src:
+        "audio/jingles/carlito.wav"
+    }
+  ];
+
+  $("#songName").html(Playlist[i]["Song"]);
+  $("source").attr("src", Playlist[i]["Src"]);
+  $(".artist-name").html(Playlist[i]["Artist"]);
+  $(".list-group-item:nth-child(" + i + 2 + ")").addClass("active");
+
+  $(".carousel").carousel({
+    interval: false
+  });
+
+  var audio = $("audio").get(0);
+  audio.load();
+
+  $("#play-pause").on("click", function() {
+    if (this.value == 1) {
+      $("audio")
+        .get(0)
+        .play();
+      this.value = 0;
+      $(this).html("<i style='color:#4DA6D6' class='fa fa-pause'></i>");
+      $(".range-indicator").toggleClass("range-indicator-pause");
+      $(".active").attr("style", "");
+    } else {
+      $("audio")
+        .get(0)
+        .pause();
+      this.value = 1;
+      $(this).html("<i class='fa fa-play'></i>");
+      $(".range-indicator").addClass("range-indicator-pause");
+      $(".active").attr("style", "background-color:#4DA6D6");
+    }
+  });
+
+  $("#next").on("click", function() {
+    i++;
+    if (i == Playlist.length) i = 0;
+    $(".carousel").carousel("next");
+    $("source").attr("src", Playlist[i]["Src"]);
+    audio.load();
+    audio.play();
+    $("#songName").html(Playlist[i]["Song"]);
+    var btn = $("#play-pause");
+    $(btn).html("<i style='color:#4DA6D6' class='fa fa-pause'></i>");
+    $(".range-indicator").removeClass("range-indicator-pause");
+    $(".artist-name").html(Playlist[i]["Artist"]);
+    var x = String(parseInt(i) + 2);
+    var y = String(parseInt(x) - 1);
+    str = "nth-child(" + y + ")";
+    if (x == 2) str = "last-child()";
+    $(".list-group-item:nth-child(" + x + ")").addClass("active");
+    $(".list-group-item:" + str).removeClass("active");
+    $(".list-group-item:" + str).attr("style", "");
+  });
+
+  $("#prev").on("click", function() {
+    i--;
+    if (i == -1) {
+      i = Playlist.length - 1;
+    }
+    $(".carousel").carousel("prev");
+    $("source").attr("src", Playlist[i]["Src"]);
+    audio.load();
+    audio.play();
+    $("#songName").html(Playlist[i]["Song"]);
+    var btn = $("#play-pause");
+    $(btn).html("<i style='color:#4DA6D6' class='fa fa-pause'></i>");
+    $(".range-indicator").removeClass("range-indicator-pause");
+    $(".artist-name").html(Playlist[i]["Artist"]);
+    var x = String(parseInt(i) + 2);
+    var y = String(parseInt(x) + 1);
+    str = "nth-child(" + y + ")";
+    if (x == Playlist.length + 1) str = "nth-child(2)";
+    $(".list-group-item:nth-child(" + x + ")").addClass("active");
+    $(".list-group-item:" + str).removeClass("active");
+    $(".list-group-item:" + str).attr("style", "");
+  });
+
+  audio.addEventListener("timeupdate", function() {
+    var cmin = Math.floor(this.currentTime / 60);
+    if (cmin < 10) cmin = "0" + cmin;
+    var csec = Math.floor(this.currentTime) % 60;
+    if (csec < 10) csec = "0" + csec;
+    var dmin = Math.floor(this.duration / 60);
+    if (dmin < 10) dmin = "0" + dmin;
+    var dsec = Math.floor(this.duration) % 60;
+    if (dsec < 10) dsec = "0" + dsec;
+    $("#tracktime").html(cmin + ":" + csec + " / " + dmin + ":" + dsec);
+    $(".range-indicator").attr(
+      "style",
+      "width:" +
+        Math.floor(this.currentTime) / Math.floor(this.duration) * 100 +
+        "%"
+    );
+
+    if (this.currentTime == this.duration) {
+      $("#next").trigger("click");
+    }
+  });
+
+  $("#inputrange").attr("max", Math.floor($("audio").get(0).duration));
+
+  $("#inputrange").on("click", function() {
+    $("audio").get(0).currentTime =
+      this.value * $("audio").get(0).duration / 100;
+  });
+
+  $(window).keypress(function(e) {
+    if (e.keyCode === 0 || e.keyCode === 32) {
+      e.preventDefault();
+      $("#play-pause").trigger("click");
+    }
+  });
+
+  $(".list-group-item").on("click", function() {
+    var x = String(parseInt(i) + 2);
+    $(".list-group-item:nth-child(" + x + ")").removeClass("active");
+    $(".list-group-item:nth-child(" + x + ")").attr("style", "");
+    i = this.value;
+    var x1 = String(parseInt(i) + 2);
+    $(".list-group-item:nth-child(" + x1 + ")").addClass("active");
+    $(".carousel").carousel(parseInt(i));
+    $("source").attr("src", Playlist[i]["Src"]);
+    audio.load();
+    audio.play();
+    $("#songName").html(Playlist[i]["Song"]);
+    var btn = $("#play-pause");
+    $(btn).html("<i style='color:#4DA6D6' class='fa fa-pause'></i>");
+    $(".range-indicator").removeClass("range-indicator-pause");
+    $(".artist-name").html(Playlist[i]["Artist"]);
+  });
+
+  $("#playlist-btn").on("click", function() {
+    if (this.value == 0) {
+      $(".playlist").attr("style", "height:298px");
+      this.value = 1;
+      $(this).html('<i class="fa fa-times">');
+    } else if (this.value == 1) {
+      $(".playlist").attr("style", "");
+      this.value = 0;
+      $(this).html('<i class="fa fa-bars">');
+    }
+  });
+});
+
+</script>
+
+
+    </body>
+
+</html>
